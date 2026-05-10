@@ -1,1 +1,2 @@
 - Refactoring and UI improvements part 1
+- Refactoring and UI improvements part 2
