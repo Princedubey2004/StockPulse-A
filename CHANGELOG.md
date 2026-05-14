@@ -3,3 +3,4 @@
 - Refactoring and UI improvements part 3
 - Refactoring and UI improvements part 4
 - Refactoring and UI improvements part 5
+- Refactoring and UI improvements part 6
