@@ -17,3 +17,4 @@
 - Refactoring and UI improvements part 17
 - Refactoring and UI improvements part 18
 - Refactoring and UI improvements part 19
+- Refactoring and UI improvements part 20
