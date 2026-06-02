@@ -22,3 +22,4 @@
 - Refactoring and UI improvements part 22
 - Refactoring and UI improvements part 23
 - Refactoring and UI improvements part 24
+- Refactoring and UI improvements part 25
