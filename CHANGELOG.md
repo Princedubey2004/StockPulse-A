@@ -26,3 +26,4 @@
 - Refactoring and UI improvements part 26
 - Refactoring and UI improvements part 27
 - Refactoring and UI improvements part 28
+- Refactoring and UI improvements part 29
