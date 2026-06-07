@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id           String      @id @default(uuid())
+  email        String      @unique
+  password     String
+  refreshToken String?
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  watchlist    Watchlist[]
+  portfolio    Portfolio[]
+  alerts       Alert[]
+}
+
+model Watchlist {
+  id        String   @id @default(uuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  symbol    String
+  addedAt   DateTime @default(now())
+
+  @@unique([userId, symbol])
+}
+
+model Portfolio {
+  id           String   @id @default(uuid())
+  userId       String
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  symbol       String
+  quantity     Float
+  averagePrice Float
+  updatedAt    DateTime @updatedAt
+
+  @@unique([userId, symbol])
+}
+
+model Alert {
+  id          String   @id @default(uuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  symbol      String
+  condition   String   // "ABOVE" or "BELOW"
+  targetPrice Float
+  isTriggered Boolean  @default(false)
+  createdAt   DateTime @default(now())
+}
+
+model HistoricalPrice {
+  id        String   @id @default(uuid())
+  symbol    String
+  price     Float
+  volume    Float
+  timestamp DateTime @default(now())
+
+  @@index([symbol, timestamp(sort: Desc)])
+}
